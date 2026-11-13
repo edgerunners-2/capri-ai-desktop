@@ -75,7 +75,19 @@ def text(question: str, default: str = "") -> str:
 
 
 def _missing_pacman(pkgs: list[str]) -> list[str]:
-    return [p for p in pkgs if subprocess.run(["pacman", "-Q", p], capture_output=True).returncode != 0]
+    missing = []
+    for p in pkgs:
+        try:
+            result = subprocess.run(
+                ["pacman", "-Q", p],
+                capture_output=True,
+                text=True
+            )
+            if result.returncode != 0:
+                missing.append(p)
+        except OSError:
+            missing.append(p)
+    return missing
 
 
 def _pacman(pkgs: list[str]) -> None:
