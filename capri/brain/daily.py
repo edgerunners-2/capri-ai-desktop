@@ -74,6 +74,8 @@ _CLEAN = re.compile(r"\b(?:clean|clear|tidy|empty)\s+(?:up\s+)?(?:my\s+|the\s+)?
 
 
 def detect(text: str) -> Intent | None:
+    if not text or not text.strip():
+        return None
     t = _TAIL.sub("", text.strip())
     if m := _EVER.search(t):
         return Intent("privacy", "allow|" + m.group("app").strip())
