@@ -315,6 +315,14 @@ Capri Desktop acts as a free, open-source, local-first alternative and wrapper f
 
 ---
 
+## Documentation & Guides
+
+- **[Local AI & Ollama Setup](docs/OLLAMA_SETUP.md)** — Run DeepSeek-R1, Qwen, and Llama models 100% offline.
+- **[Discord Call Mode Guide](docs/DISCORD_CALL_MODE.md)** — Virtual microphone routing and voice chat setup for Windows.
+- **[Roadmap & Platform Ports](../../issues)** — Track progress for macOS, Linux, and custom `.capri-skin` modding.
+
+---
+
 <div align="center">
 
 **If Capri saves you time, drop a ⭐ and share it with a friend.**
