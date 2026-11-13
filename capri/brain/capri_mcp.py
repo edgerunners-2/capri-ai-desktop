@@ -65,9 +65,11 @@ def main() -> int:
         line = line.strip()
         if not line:
             continue
-        try:
+               try:
             msg = json.loads(line)
-        except ValueError:
+            if not isinstance(msg, dict):
+                continue
+        except (ValueError, TypeError):
             continue
         reply = handle(msg)
         if reply is not None:
