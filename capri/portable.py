@@ -314,13 +314,16 @@ def download(items: list[Item], progress=lambda done, total, what: None, cancell
                 done += size
                 continue
             part = dest.with_name(dest.name + ".part")
-            for attempt in range(30):  # flaky connections: keep resuming
+            for attempt in range(100):  # flaky connections: keep resuming
                 have = part.stat().st_size if part.exists() else 0
                 if have >= size:
                     break
                 try:
-                    with requests.get(url, stream=True, timeout=30, allow_redirects=True,
+                    with requests.get(url, stream=True, timeout=(15, 120), allow_redirects=True,
                                       headers={"Range": f"bytes={have}-"} if have else {}) as r:
+                        
+                        if r.status_code == 429 or r.status_code >= 500:
+                            raise requests.HTTPError(f"Temporary HTTP error: {r.status_code}")
                         if r.status_code in (401, 403, 404, 410):  # moved or gone: retrying won't help
                             raise RuntimeError(f"{it.label}: dead download link ({r.status_code}) {url}")
                         r.raise_for_status()
@@ -342,14 +345,25 @@ def download(items: list[Item], progress=lambda done, total, what: None, cancell
                                     progress(done + have, total, f"{it.label}: {gb(have)} of {gb(size)}   "
                                                                  f"({speed / 2 ** 20:.1f} MB/s)")
                 except requests.RequestException as e:
-                    progress(done + have, total, f"connection dropped ({type(e).__name__}), resuming... "
-                                                 f"(try {attempt + 2})")
-                    time.sleep(min(30, 2 + attempt * 2))
+                   retry_after = getattr(getattr(e, "response", None), "headers", {}).get("Retry-After")
+
+                   try:
+                        delay = min(300, max(1, int(retry_after))) if retry_after else min(60, 5 + attempt * 3)
+                    except (ValueError, TypeError):
+                    delay = min(60, 5 + attempt * 3)
+
+progress(done, total, f"connection dropped ({type(e).__name__}), retrying...")
+time.sleep(delay)
             if not part.exists() or part.stat().st_size != size:
-                raise RuntimeError(f"{it.label} didn't download completely")
+                progress(done, total, f"{it.label}: download incomplete, skipping")
+                continue
             part.replace(dest)
             done += size
-        finish(it)
+        try:
+            finish(it)
+        except (OSError, zipfile.BadZipFile, tarfile.TarError) as e:
+            progress(done, total, f"{it.label}: extraction failed: {e}")
+            raise
     return True
 
 
