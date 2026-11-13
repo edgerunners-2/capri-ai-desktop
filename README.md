@@ -89,7 +89,6 @@ Requires Windows 10 or newer. macOS and Linux versions are on the [roadmap](#%EF
 
 ### 2. Install and launch
 
-- **Installer:** run `Capri-Setup.exe`, follow the wizard, then open **Capri** from the Start menu.
 - **Portable:** put the portable build in any folder and run it. No installation needed.
 
 <details>
