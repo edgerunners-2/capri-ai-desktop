@@ -68,7 +68,6 @@ Press **Mods** in the Mainframe's CAPRI band. Browse the [mods directory](https:
 - Every mod in the directory is checked for malware before it goes up
 - **Recolour her yourself:** press Hair, Accents, Eyes, Edges or Body on the Mods page. She saves it as a My Colors mod you can share
 - **Share yours:** fork [capri-mods](https://github.com/edgerunners-2/capri-mods), add a folder with the mod, a README and a `preview.png`, then open a pull request
-- **Mac and Linux** get the Mods window, the directory, settings mods, colour sets, stacking skins and code mods. A code mod that uses Windows-only parts, like drawing on her or an options page, is refused there with a message naming the part
 
 </details>
 
@@ -90,14 +89,6 @@ Requires Windows 10 or newer. macOS and Linux versions are on the [roadmap](#%EF
 ### 2. Install and launch
 
 - **Portable:** put the portable build in any folder and run it. No installation needed.
-
-<details>
-<summary><b>Windows shows a SmartScreen warning?</b></summary>
-
-<br/>
-
-New apps that are not yet widely downloaded can trigger a SmartScreen prompt. If you downloaded Capri from this repository's [Releases](https://github.com/edgerunners-2/capri-ai-desktop/releases/latest) page, click **More info → Run anyway**.
-
 
 </details>
 
@@ -127,28 +118,11 @@ Beware that Capri may try to take over your human CPU. We take no responsibility
 
 ## Inspired by Cyberpunk: Edgerunners
 
-Capri is built for people who like their tech with an edge. The project takes its look and spirit from the **cyberpunk** genre and from *Cyberpunk: Edgerunners*, where a mysterious AI construct named Capri appears in season 2.
+Capri is built for people who like their tech with an edge. The project takes its look and spirit from the **cyberpunk** genre and from *Cyberpunk: Edgerunners*, where a mysterious AI construct named Capri.
 
 -  **Cyberpunk aesthetic:** neon red and cyan on near-black, sharp edges and glitchy details.
 -  **Netrunner energy:** you give the order, your AI operator handles the rest.
 -  **Edgerunner attitude:** fast, independent and on your side.
-
-
----
-
-##  Features
-
-
-| | Feature | What it means for you |
-|:---:|---|---|
-|  | **Bring any brain** | Plug in Claude Code, Codex, Antigravity or another assistant and switch between them at any time. |
-|  | **Desktop-native** | A real app with a clean interface. No terminal required. |
-|  | **Files and projects** | Ask Capri to find, read, organize and edit files and whole project folders. |
-|  | **Full agent toolkit** | Capri plans a task, uses tools, checks the result and reports back. |
-|  | **Code on demand** | Write, refactor, debug and run code through the engine you prefer. |
-|  | **Automations** | Turn repeated chores into a single sentence. |
-|  | **You stay in control** | Review what Capri is about to do and approve or deny it. |
-|  | **Cyberpunk interface** | A dark neon, Edgerunners-inspired theme that makes your desktop feel like a netrunner's deck. |
 
 ---
 
@@ -320,10 +294,6 @@ No. Capri is an independent, unofficial fan project with a cyberpunk aesthetic, 
 ## Quick Troubleshooting
 
 If you encounter any issues while running Capri AI, check these quick fixes before opening an issue:
-
-### 1. Windows SmartScreen or Antivirus Flags the `.exe`
-* **Why it happens:** Capri is a fresh, native desktop app. New releases with high download spikes often trigger generic heuristic flags on Windows.
-* **Fix:** Click **More Info -> Run Anyway** on the SmartScreen prompt. If your antivirus quarantines the file, simply add `Capri.exe` or the portable folder to your exceptions list.
 
 ### 2. Local Ollama / LLaMA Models Disconnecting
 * **Why it happens:** Host connection timeout or missing CORS headers in your local setup.
