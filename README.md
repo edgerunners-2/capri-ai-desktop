@@ -219,7 +219,7 @@ An agent that works on your desktop is powerful, so treat it with care:
 ##  Roadmap
 
 
-- [x] Windows app (installer and portable)
+- [x] Windows app ( portable)
 - [x] Multiple AI engines
 - [x] Voice control
 - [ ] macOS version
@@ -240,7 +240,7 @@ Have an idea? [Open an issue](https://github.com/edgerunners-2/capri-ai-desktop/
 
 <br/>
 
-Not yet. Capri is currently available for Windows as portable build (`.zip`). macOS and Linux versions are planned, so star the repository to follow the progress.
+Not yet. Capri is currently available for Windows as a portable build (`.zip`). macOS and Linux versions are planned, so star the repository to follow the progress.
 
 </details>
 
