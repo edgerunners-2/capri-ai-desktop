@@ -122,7 +122,7 @@ def _merge(base: dict, extra: dict) -> dict:
 
 
 def load() -> dict:
-    cfg = DEFAULTS
+    cfg = copy.deepcopy(DEFAULTS)
     path = Path(os.environ.get("CAPRI_CONFIG", ROOT / "config.yaml"))
     if path.exists() and yaml is not None:
         with open(path, encoding="utf-8") as f:
