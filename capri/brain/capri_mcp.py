@@ -9,7 +9,6 @@ import os
 import sys
 import urllib.request
 
-
 def _post(name: str, args: dict) -> dict:
     url, token = os.environ.get("CAPRI_BRIDGE_URL", ""), os.environ.get("CAPRI_BRIDGE_TOKEN", "")
     if not url:
