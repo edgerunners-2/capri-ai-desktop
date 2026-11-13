@@ -1,0 +1,18 @@
+{
+    "KPackageStructure": "KWin/Script",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "capri@capri.sh",
+                "Name": "Capri"
+            }
+        ],
+        "Description": "Lets Capri see which window is active on KDE Wayland (X11 tools can't read native Wayland windows).",
+        "Icon": "preferences-system-windows-script-test",
+        "Id": "capri-active",
+        "License": "MIT",
+        "Name": "Capri: Active Window",
+        "Version": "0.4.0"
+    },
+    "X-Plasma-API": "declarativescript"
+}
