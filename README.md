@@ -77,7 +77,7 @@ Press **Mods** in the Mainframe's CAPRI band. Browse the [mods directory](https:
 
 ### 1. Download
 
-Capri is currently available for **Windows** in two formats:
+Capri is currently available for **Windows** as a portable build:
 
 | Format | Download | Best for |
 |---|---|---|
@@ -118,7 +118,7 @@ Beware that Capri may try to take over your human CPU. We take no responsibility
 
 ## Inspired by Cyberpunk: Edgerunners
 
-Capri is built for people who like their tech with an edge. The project takes its look and spirit from the **cyberpunk** genre and from *Cyberpunk: Edgerunners*, where a mysterious AI construct named Capri.
+Capri is built for people who like their tech with an edge. The project takes its look and spirit from the **cyberpunk** genre and inspired by the style of Cyberpunk: Edgerunners, featuring an original AI construct named Capri.
 
 -  **Cyberpunk aesthetic:** neon red and cyan on near-black, sharp edges and glitchy details.
 -  **Netrunner energy:** you give the order, your AI operator handles the rest.
@@ -240,7 +240,7 @@ Have an idea? [Open an issue](https://github.com/edgerunners-2/capri-ai-desktop/
 
 <br/>
 
-Not yet. Capri is currently available for Windows as an installer (`.exe`) and a portable build. macOS and Linux versions are planned, so star the repo to follow the progress.
+Not yet. Capri is currently available for Windows as an portable build (`.zip`). macOS and Linux versions are planned, so star the repository to follow the progress.
 
 </details>
 
@@ -295,11 +295,11 @@ No. Capri is an independent, unofficial fan project with a cyberpunk aesthetic, 
 
 If you encounter any issues while running Capri AI, check these quick fixes before opening an issue:
 
-### 2. Local Ollama / LLaMA Models Disconnecting
+### 1. Local Ollama / LLaMA Models Disconnecting
 * **Why it happens:** Host connection timeout or missing CORS headers in your local setup.
 * **Fix:** Make sure Ollama is running in the background before launching Capri. If you are using a custom port, update the `allowed_folders` and server URL inside your `config.yaml`.
 
-### 3. Voice Chat or Audio Input Lag
+### 2. Voice Chat or Audio Input Lag
 * **Why it happens:** Discord, Teams, or Zoom background noise suppression conflicting with Qwen3-ASR.
 * **Fix:** Go to your voice app settings (e.g., Discord Audio Settings) and temporarily disable **Echo Cancellation** and **Krisp/Noise Suppression**. Let Capri handle the voice gating.
 
