@@ -31,6 +31,34 @@
 
 <br/>
 
+## Inspired by Cyberpunk: Edgerunners
+
+Capri is built for people who like their tech with an edge. The project takes its look and spirit from the **cyberpunk** genre and inspired by the style of Cyberpunk: Edgerunners, featuring an original AI construct named Capri.
+
+-  **Cyberpunk aesthetic:** neon red and cyan on near-black, sharp edges and glitchy details.
+-  **Netrunner energy:** you give the order, your AI operator handles the rest.
+-  **Edgerunner attitude:** fast, independent and on your side.
+
+---
+
+## What she does
+
+- **Talks back.** Type to her or voice chat, and turn on "Hey Capri" to call her by name. She answers in her own words, in 80 languages.
+- **Talks out loud.** In her own free voice, a voice model of yours, or Fish Audio, ElevenLabs or OpenAI. See [Her voice](#her-voice).
+- **Plays your games.** She comments while you play, and she can play too. She's still learning.
+- **Does things for you.** She opens apps, plays music, closes tabs and clicks through jobs with her own cursor. Talk to her mid-job, or press Esc to stop her.
+- **Remembers you.** Your past chats and what she saw on your screen, kept on your PC.
+- **Sits on your stuff.** She perches on your windows and sways to your music, or drops onto an icon or the bottom of your screen.
+- **Shows your music.** A little cyberpunk mini player, with her perched on it (Windows).
+
+<table align="center">
+  <tr>
+    <td align="center"><img src="assets/readme/mini-player.png" alt="Capri perched on her cyberpunk mini player while a song plays" width="300"><br><sub>Her mini player</sub></td>
+    <td align="center"><img src="assets/readme/bubble.png" alt="Capri's speech box with the pencil and wave buttons" width="220"><br><sub>Talking to her</sub></td>
+    <td align="center"><img src="assets/readme/mainframe.png" alt="The Capri Mainframe with her BRAIN and VOICE rows" width="170"><br><sub>The Mainframe</sub></td>
+  </tr>
+</table>
+
 <details>
 <summary><h2><a name="she-joins-your-calls"></a>She joins your calls</h2><br><a name="she-joins-your-calls-1"><img src="assets/readme/call.gif" alt="Asked to join a Discord call, Capri clicks Join Voice herself, sits beside her call panel and tells the call her friend is running late because of a bathroom battle with a rogue burrito. A friend says launch Cyberpunk, and she opens Cyberpunk 2077" width="800"></a></summary>
 
@@ -93,38 +121,9 @@ Requires Windows 10 or newer. macOS and Linux versions are on the [roadmap](#%EF
 </details>
 
 
-## What she does
-
-- **Talks back.** Type to her or voice chat, and turn on "Hey Capri" to call her by name. She answers in her own words, in 80 languages.
-- **Talks out loud.** In her own free voice, a voice model of yours, or Fish Audio, ElevenLabs or OpenAI. See [Her voice](#her-voice).
-- **Plays your games.** She comments while you play, and she can play too. She's still learning.
-- **Does things for you.** She opens apps, plays music, closes tabs and clicks through jobs with her own cursor. Talk to her mid-job, or press Esc to stop her.
-- **Remembers you.** Your past chats and what she saw on your screen, kept on your PC.
-- **Sits on your stuff.** She perches on your windows and sways to your music, or drops onto an icon or the bottom of your screen.
-- **Shows your music.** A little cyberpunk mini player, with her perched on it (Windows).
-
-<table align="center">
-  <tr>
-    <td align="center"><img src="assets/readme/mini-player.png" alt="Capri perched on her cyberpunk mini player while a song plays" width="300"><br><sub>Her mini player</sub></td>
-    <td align="center"><img src="assets/readme/bubble.png" alt="Capri's speech box with the pencil and wave buttons" width="220"><br><sub>Talking to her</sub></td>
-    <td align="center"><img src="assets/readme/mainframe.png" alt="The Capri Mainframe with her BRAIN and VOICE rows" width="170"><br><sub>The Mainframe</sub></td>
-  </tr>
-</table>
-
-Beware that Capri may try to take over your human CPU. We take no responsibility for her actions.
-
 
 ---
 
-## Inspired by Cyberpunk: Edgerunners
-
-Capri is built for people who like their tech with an edge. The project takes its look and spirit from the **cyberpunk** genre and inspired by the style of Cyberpunk: Edgerunners, featuring an original AI construct named Capri.
-
--  **Cyberpunk aesthetic:** neon red and cyan on near-black, sharp edges and glitchy details.
--  **Netrunner energy:** you give the order, your AI operator handles the rest.
--  **Edgerunner attitude:** fast, independent and on your side.
-
----
 
 
 ### 3. Connect your AI
