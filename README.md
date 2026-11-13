@@ -328,6 +328,6 @@ Capri Desktop acts as a free, open-source, local-first alternative and wrapper f
 
 *Stay sharp, edgerunner.*
 
-<img src="https://capsule-render.vercel.app/api?type=rect&height=90&color=0:00f0ff,50:ff003c,100:0a0a12&section=footer" alt="" width="100%"/>
+<img src="assets/readme/idle.webp"/>
 
 </div>
