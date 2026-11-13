@@ -342,9 +342,17 @@ def _launch(target: str) -> bool:
         return linux.open_path(target)
     name = target.removesuffix(".exe")
     exe = next((e for e in (shutil.which(n) for n in (name, LINUX_NAMES.get(name, ""))) if e), None)
-    if exe:
-        subprocess.Popen([exe], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, start_new_session=True)
-        return True
+     if exe:
+        try:
+            subprocess.Popen(
+                [exe],
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL,
+                start_new_session=True
+            )
+            return True
+        except OSError:
+            return False
     return False
 
 
