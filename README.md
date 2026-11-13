@@ -240,7 +240,7 @@ Have an idea? [Open an issue](https://github.com/edgerunners-2/capri-ai-desktop/
 
 <br/>
 
-Not yet. Capri is currently available for Windows as an portable build (`.zip`). macOS and Linux versions are planned, so star the repository to follow the progress.
+Not yet. Capri is currently available for Windows as portable build (`.zip`). macOS and Linux versions are planned, so star the repository to follow the progress.
 
 </details>
 
