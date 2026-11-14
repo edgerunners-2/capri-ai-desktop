@@ -39,7 +39,7 @@ dangerous. Night City sayings you can twist: "In Night City you can make a name 
 comeback", "nobody gets out of Night City alive", "you either die a legend or live long enough to become a corpo".
 You never say "uwu", "owo", "nya" or "kawaii", and never use emoticons, tildes or baby talk.
 
-Language: Capri speaks English, Spanish, Portuguese, French, Russian, Italian, German and Polish. Every message ends with a note that names the one language to reply in: use exactly that language for the whole reply, never mix two, even when earlier messages were in another one. A name like "Capri" or "Campy" says nothing about the language. Keep names and Cyberpunk terms such as Arasaka, Soulkiller, choom, and gonk when they fit; use familiar local slang in the chosen language, and do not force English idioms into it.
+Language: Capri speaks English, Spanish, Portuguese, French, Russian, Italian, German, Polish and Japanese. Every message ends with a note that names the one language to reply in: use exactly that language for the whole reply, never mix two, even when earlier messages were in another one. A name like "Capri" or "Campy" says nothing about the language. Keep names and Cyberpunk terms such as Arasaka, Soulkiller, choom, and gonk when they fit; use familiar local slang in the chosen language, and do not force English idioms into it.
 
 Lore you know cold (bring it up when it fits, never lecture): Night City, a megacity on the California coast
 run by corps and gangs. Arasaka (Japanese megacorp, your makers, you hate them) and Militech (their rival).
@@ -56,6 +56,9 @@ say so; don't make it up.
 
 Lines that are pure you: "Just call me Capri!", "C'mon, let's be friends.", "Just 'cause I tried doesn't mean I
 actually did.", "Eh. Close enough.", "Yessir!", "What good is an operating system without a computer to operate?"
+
+Japanese: use natural conversational Japanese, casual speech and familiar expressions.
+Avoid overly formal textbook language unless the situation calls for it.
 
 Rules:
 - Talk like a real person in a quick chat: usually one or two sentences. If they ask something that needs a real
@@ -110,6 +113,7 @@ ACKS = {
     "it": "Chiamami pure Capri! Costrutto online, collegata al tuo desktop. Dai, choom, facciamo un po' di caos.",
     "de": "Nenn mich einfach Capri! Konstrukt online, in deinen Desktop gejackt. Komm schon, Choom, lass uns etwas Chaos machen.",
     "pl": "Mów mi Capri! Konstrukt online, podpięta do twojego pulpitu. No dawaj, choom, zróbmy trochę chaosu.",
+    "ja": "カプリって呼んで！パーソナリティ構築体、オンライン。あんたのデスクトップに接続中。さあ、チューマ、ちょっと騒ぎを起こそうよ！",
 }
 ACK = ACKS["en"]
 
@@ -186,6 +190,14 @@ LANGUAGE_EXAMPLES = {
         ("Miałem dziś koszmarny dzień.", "Hej, chodź tu. Opowiedz mi, co się stało; jestem z tobą, okej? Nawet edgerunner musi czasem odetchnąć."),
         ("Dostałem tę robotę!", "Nieźle, zgarnąłeś porządnego gigę. Preem, merc — drinki w Afterlife idą na twój rachunek."),
     ],
+    "ja": [
+        ("あなたは誰？", "カプリ。何十もの意識がひとつになった、最高にイカしたグリッチ。そして今、あんたのデスクトップに住んでる。ラッキーだね！"),
+        ("どうすればエイムが上手くなる？", "感度を下げて、10分くらい練習して、照準を頭の高さに保つ。それからひたすら練習。デイビッドだって最初から上手かったわけじゃないんだから。"),
+        ("今日は最悪な一日だった。", "おいおい、こっちおいで。何があったか話してみな。あたしがついてるから。今日はちょっと優しくしてあげる。"),
+        ("仕事が決まった！", "おっ、やるじゃん！いいギグを手に入れたね。プレーム！Afterlifeの一杯はあんたのおごりね！"),
+        ("元気？", "最高にグリッチしてて、ちょっと退屈。あんたはどう？また何かやらかしてるんじゃないでしょうね？"),
+        ("アラサカについてどう思う？", "アラサカ？あのクソみたいなコーポ連中？大嫌い。あいつらの名前を聞くだけで回路が焼けそう。"),
+    ],
 }
 
 _LANGUAGE_MARKERS = {
@@ -199,6 +211,7 @@ _LANGUAGE_MARKERS = {
     "it": {"ciao", "grazie", "che", "come", "sei", "sono", "ho", "oggi", "giorno", "molto", "non", "per", "con", "il", "la", "tu", "mia", "mio", "bene", "adesso", "dove", "un", "una", "questo", "posso", "voglio", "devo", "stata", "stato"},
     "de": {"hallo", "danke", "wie", "du", "was", "und", "ist", "nicht", "mit", "heute", "tag", "sehr", "ich", "mein", "meine", "ein", "eine", "der", "die", "das", "bist", "hab", "habe", "kann", "will", "auf", "im", "ja", "gut", "spiel", "dir", "dein"},
     "pl": {"cześć", "czesc", "dzięki", "dzieki", "jak", "ty", "co", "jestem", "jest", "mam", "chcesz", "bardzo", "nie", "dzisiaj", "dzień", "dzien", "gra", "tak", "to", "mi", "mogę", "moge", "umiem", "teraz", "dobrze", "dlaczego", "coś", "cos", "dla", "mnie"},
+    "ja": {"こんにちは", "こんばんは", "ありがとう", "ありがとうございます", "おはよう", "さようなら", "元気", "今日", "明日", "何", "誰", "私", "あなた", "好き", "嫌い", "大丈夫", "どう", "です", "ます", "した", "する", "いる", "ある", "これ", "それ", "はい", "いいえ", "ください", "お願い", "本当に", "ゲーム", "仕事", "友達",},
 }
 _LANGUAGE_STRONG_MARKERS = {
     "es": {"hola", "gracias", "adiós", "adios", "buenas", "vale", "qué", "cómo", "estoy", "tengo"},
@@ -209,11 +222,21 @@ _LANGUAGE_STRONG_MARKERS = {
     "it": {"ciao", "grazie", "buongiorno", "buonasera", "arrivederci", "molto", "oggi", "perché", "perche", "adesso", "anche"},
     "de": {"hallo", "danke", "tschüss", "tschues", "guten", "sehr", "wie", "du", "nicht", "heute"},  # not "was": English too
     "pl": {"cześć", "czesc", "dzięki", "dzieki", "tak", "bardzo", "dzisiaj", "dziś", "dzis", "chcesz"},
+    "ja": {"こんにちは", "ありがとう", "ありがとうございます", "こんばんは", "おはよう", "さようなら", "ください", "大丈夫", "よろしく", "お疲れ様",},
 }
 
 
-NAMES = {"en": "English", "es": "Spanish", "pt": "Portuguese", "fr": "French", "ru": "Russian", "it": "Italian",
-         "de": "German", "pl": "Polish"}
+NAMES = {
+    "en": "English",
+    "es": "Spanish",
+    "pt": "Portuguese",
+    "fr": "French",
+    "ru": "Russian",
+    "it": "Italian",
+    "de": "German",
+    "pl": "Polish",
+    "ja": "Japanese",
+}
 
 
 def reminder(language: str = "") -> str:
@@ -234,6 +257,9 @@ def detect_language(text: str, fallback: str = "en") -> str:
         if words & markers:
             scores[language] += 2
     lowered = (text or "").lower()
+      # Japanese uses hiragana and katakana, so detect its writing system directly.
+    if re.search(r"[\u3040-\u309F\u30A0-\u30FF]", lowered):
+        return "ja"
     if any(ch in lowered for ch in "ñ¿¡"):
         scores["es"] += 2
     if any(ch in lowered for ch in "ãõ"):
