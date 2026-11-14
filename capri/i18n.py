@@ -15,7 +15,8 @@ LANGS = {
     "it": "Italiano",
     "de": "Deutsch",
     "pl": "Polski",
-    "cn": "Chinese"
+    "cn": "Chinese",
+    "ja": "Japanese"
 }
 
 STRINGS: dict[str, dict[str, str]] = {
