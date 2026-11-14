@@ -38,7 +38,17 @@ _WEATHER = re.compile(r"\b(?:weather|forecast|temperature (?:outside|today|tomor
                       r"is it (?:gonna|going to) (?:rain|snow|be (?:hot|cold|sunny))|will it (?:rain|snow)|"
                       r"do i need (?:an? )?(?:jacket|umbrella|coat|hoodie|sweater)|should i (?:bring|wear|take) "
                       r"(?:an? )?(?:jacket|umbrella|coat|hoodie|sweater))\b", re.I)
-_IN_CITY = re.compile(r"\b(?:in|for|at)\s+(?P<city>[A-Z][\w'-]+(?:[\s-][A-Z][\w'-]+){0,3})", re.U)
+_IN_CITY = re.compile(
+    r"\b(?:in|for|at)\s+(?P<city>[A-Za-zÀ-ÖØ-öø-ÿ][\w' -]{1,40}?)"
+    r"(?=\s*(?:[?!.,]|$|\b(?:today|tomorrow|tonight)\b))",
+    re.I | re.U
+)
+_VOL_NATURAL = re.compile(
+    r"\b(?:make (?:it|the volume) (?:louder|quieter|softer)|"
+    r"lower (?:my |the )?volume|raise (?:my |the )?volume|"
+    r"turn (?:the )?volume all the way (?:up|down))\b",
+    re.I
+)
 _MY_CITY = re.compile(r"\b(?:my city is|i live in|i'?m (?:from|in|based in)|my location is)\s+(?P<city>[A-Za-z][\w' -]{1,40}?)"
                       r"[\s.!?]*$", re.I)
 
@@ -115,6 +125,10 @@ def detect(text: str) -> Intent | None:
         return Intent("pc", "cancel-shutdown")
     if m := _VOL_SET.search(t):
         return Intent("pc", f"volume|set|{m.group('n')}")
+    if m := _VOL_NATURAL.search(t):
+        way = "up" if any(x in m.group().lower()
+        for x in ("louder", "raise", "all the way up")) else "down"
+        return Intent("pc", f"volume|{way}|")
     if m := _VOL.search(t):
         d = (m.group("d1") or m.group("d2") or m.group("d3") or "").lower()
         way = "up" if d in ("up", "louder", "raise the volume") else "down"
