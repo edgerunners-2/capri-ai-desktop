@@ -17,7 +17,7 @@
 
   
 
-  [![Download Capri](https://img.shields.io/badge/%E2%AC%87%20DOWNLOAD%20FOR%20WINDOWS-ff003c?style=for-the-badge&labelColor=0a0a12)](https://github.com/edgerunners-2/capri-ai-desktop/releases/latest)
+  [![Download Capri](https://img.shields.io/badge/%E2%AC%87%20DOWNLOAD%20FOR%20WINDOWS-ff003c?style=for-the-badge&labelColor=0a0a12)](https://github.com/edgerunners-2/capri-ai-desktop/releases/download/v3.8.0/Capri-Portable-3.8.0.zip)
 
 </div>
 
@@ -38,6 +38,26 @@ Capri is built for people who like their tech with an edge. The project takes it
 -  **Cyberpunk aesthetic:** neon red and cyan on near-black, sharp edges and glitchy details.
 -  **Netrunner energy:** you give the order, your AI operator handles the rest.
 -  **Edgerunner attitude:** fast, independent and on your side.
+
+---
+
+##  Quick Start
+
+### 1. Download
+
+Capri is currently available for **Windows** as a portable build:
+
+| Format | Download | Best for |
+|---|---|---|
+|  **Portable** | [`Capri-Portable.zip`](https://github.com/edgerunners-2/capri-ai-desktop/releases/latest) | Running Capri from any folder, no installation needed |
+
+Requires Windows 10 or newer. macOS and Linux versions are on the [roadmap](#%EF%B8%8F-roadmap).
+
+
+### 2. Install and launch
+
+- **Portable:** put the portable build in any folder and run it. No installation needed.
+
 
 ---
 
@@ -101,28 +121,6 @@ Press **Mods** in the Mainframe's CAPRI band. Browse the [mods directory](https:
 
 ---
 
-##  Quick Start
-
-### 1. Download
-
-Capri is currently available for **Windows** as a portable build:
-
-| Format | Download | Best for |
-|---|---|---|
-|  **Portable** | [`Capri-Portable.zip`](https://github.com/edgerunners-2/capri-ai-desktop/releases/latest) | Running Capri from any folder, no installation needed |
-
-Requires Windows 10 or newer. macOS and Linux versions are on the [roadmap](#%EF%B8%8F-roadmap).
-
-
-### 2. Install and launch
-
-- **Portable:** put the portable build in any folder and run it. No installation needed.
-
-</details>
-
-
-
----
 
 
 
