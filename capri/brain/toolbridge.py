@@ -37,7 +37,7 @@ def tool_list() -> list[dict]:
 class ToolBridge:
     def __init__(self, agent):
         self.agent = agent
-        self.token = secrets.token_hex(16)
+        self.token = secrets.token_urlsafe(32)
         self.lock = threading.Lock()  # one tool at a time: her abilities aren't built for two at once
         bridge = self
 
@@ -46,15 +46,22 @@ class ToolBridge:
                 pass
 
             def do_POST(self):
-                if self.headers.get("X-Capri-Token") != bridge.token or self.path != "/call":
+                if (not secrets.compare_digest(self.headers.get("X-Capri-Token", ""), bridge.token) or self.path != "/call"):
                     self.send_response(403)
                     self.end_headers()
                     return
                 try:
-                    body = json.loads(self.rfile.read(int(self.headers.get("Content-Length") or 0)) or b"{}")
-                    out = bridge.call(str(body.get("name", "")), body.get("arguments") or {})
-                except Exception as e:  # a tool blew up: Claude Code hears why, she doesn't crash
-                    out = {"text": f"The tool failed: {e}"}
+                    length = int(self.headers.get("Content-Length", "0"))
+
+                    if length <= 0 or length > 1024 * 1024:
+                            self.send_response(413)
+                            self.end_headers()
+                            return
+
+                body = json.loads(self.rfile.read(length))
+                out = bridge.call(str(body.get("name", "")), body.get("arguments") or {})
+                except Exception:
+                    out = {"text": "The tool failed unexpectedly. Check Capri's logs for details."}
                 data = json.dumps(out).encode("utf-8")
                 self.send_response(200)
                 self.send_header("Content-Type", "application/json")
@@ -67,12 +74,19 @@ class ToolBridge:
         # Claude Code (and so her MCP server) inherits these from her environment
         os.environ["CAPRI_BRIDGE_URL"] = self.url
         os.environ["CAPRI_BRIDGE_TOKEN"] = self.token
-        threading.Thread(target=self.server.serve_forever, daemon=True).start()
+        self.thread = threading.Thread(target=self.server.serve_forever, daemon=True, name="CapriToolBridge")
+self.thread.start()
         print(f"[capri] her tools are open to Claude Code on {self.url}")
 
     def call(self, name: str, args: dict) -> dict:
+        if not isinstance(name, str) or not name:
+            return {"text": "Invalid tool name."}
+
+        if not isinstance(args, dict):
+            return {"text": "Tool arguments must be an object."}
         if name == "look_at_screen":
-            return self._look()
+            with self.lock:
+        return self._look()
         if name in HIDDEN:
             return {"text": f"{name} isn't available in smart mode. Do it another way or tell the user how."}
         from . import tools
@@ -81,8 +95,18 @@ class ToolBridge:
         a = self.agent
         with self.lock:
             reply, context = Reply(text=""), []
+
+           allowed = {
+            s["function"]["name"]
+            for s in tools.SCHEMAS
+            if s["function"]["name"] not in HIDDEN
+        }
+
+        if name not in allowed:
+            return {"text": "Unknown or unavailable tool."}
+                
             text = tools.dispatch(a, name, args, reply, context)
-            a.pending = None  # smart mode asks in chat itself: no half-asked confirmation left hanging
+                
         return {"text": text}
 
     def _look(self) -> dict:
@@ -102,10 +126,15 @@ class ToolBridge:
         return {"text": text, "image": base64.b64encode(buf.getvalue()).decode("ascii")}
 
     def close(self):
-        try:
-            self.server.shutdown()
-        except Exception:
-            pass
+    try:
+        self.server.shutdown()
+        self.server.server_close()
+
+        if self.thread.is_alive():
+            self.thread.join(timeout=2)
+
+    except Exception:
+        pass
 
 
 def a_never(agent, title: str) -> bool:
