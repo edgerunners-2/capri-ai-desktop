@@ -24,34 +24,6 @@ _MODS = {0x11: "ctrl", 0x10: "shift", 0x12: "alt", 0x5B: "win"}
 # sided modifier codes fold into the generic one for capture
 _FOLD = {0xA2: 0x11, 0xA3: 0x11, 0xA0: 0x10, 0xA1: 0x10, 0xA4: 0x12, 0xA5: 0x12, 0x5C: 0x5B}
 
-# Linux key codes (linux/input-event-codes.h) -> the same virtual-key codes, so combos read the same everywhere
-_LINUX = {29: 0xA2, 97: 0xA3, 42: 0xA0, 54: 0xA1, 56: 0xA4, 100: 0xA5, 125: 0x5B, 126: 0x5C,
-          57: 0x20, 15: 0x09, 58: 0x14, 28: 0x0D, 14: 0x08, 1: 0x1B, 110: 0x2D, 111: 0x2E, 102: 0x24, 107: 0x23,
-          104: 0x21, 109: 0x22, 103: 0x26, 108: 0x28, 105: 0x25, 106: 0x27, 41: 0xC0, 12: 0xBD, 13: 0xBB,
-          26: 0xDB, 27: 0xDD, 39: 0xBA, 40: 0xDE, 51: 0xBC, 52: 0xBE, 53: 0xBF, 43: 0xDC, 0x113: 0x05, 0x114: 0x06,
-          11: 0x30, 87: 0x7A, 88: 0x7B, 82: 0x60, 79: 0x61, 80: 0x62, 81: 0x63, 75: 0x64, 76: 0x65, 77: 0x66,
-          71: 0x67, 72: 0x68, 73: 0x69}
-_LINUX.update({2 + d: 0x31 + d for d in range(9)})  # 1-9
-_LINUX.update({59 + n: 0x70 + n for n in range(10)})  # F1-F10
-_LINUX.update({183 + n: 0x7C + n for n in range(12)})  # F13-F24
-_LINUX.update({c: ord(ch) for ch, c in zip("QWERTYUIOPASDFGHJKLZXCVBNM", (16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 30, 31,
-                                                                       32, 33, 34, 35, 36, 37, 38, 44, 45, 46, 47, 48,
-                                                                       49, 50))})
-
-
-def _linux_down() -> set[int]:
-    from .. import linux
-
-    out = set()
-    for code in linux.keys_down():
-        vk = _LINUX.get(code)
-        if vk is not None:
-            out.add(vk)
-            if vk in _FOLD:
-                out.add(_FOLD[vk])  # left ctrl also counts as ctrl
-    return out
-
-
 def parse(combo: str) -> list[int]:
     keys = [k.strip().lower() for k in combo.replace(" + ", "+").split("+") if k.strip()]
     vks = [NAMES[k] for k in keys if k in NAMES]
