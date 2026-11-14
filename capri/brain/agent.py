@@ -117,15 +117,15 @@ class Agent:
                        "playing, that's the answer.)")
         return out
 
-    def fixed_language(self) -> str:
-        """The language picked in setup / her Language menu ("" = Auto). When set, she always answers in it."""
+    def fixed_(self) -> str:
+        """The  picked in setup / her  menu ("" = Auto). When set, she always answers in it."""
         from .. import i18n
 
         code = str(self.settings.get("ui_lang", "auto") or "auto").lower()
         return code if code in i18n.LANGS else ""
 
-    def _recent_language(self) -> str:
-        """The language she is talking in right now: the picked one, else the last thing they said that showed a
+    def _recent_(self) -> str:
+        """The  she is talking in right now: the picked one, else the last thing they said that showed a
         language, else the interface's language (the system's), never a guess like Spanish."""
         fixed = self.fixed_language()
         if fixed:
@@ -1846,3 +1846,5 @@ def _clean(text: str) -> str:
     text = _ASSISTANT.sub("I'm Capri, the glitch living in your rig", text)
     text = re.sub(r"\b(?:your|an?)\s+(?:smart\s+|AI\s+|virtual\s+|personal\s+)*assistant\b", "your favorite glitch", text, flags=re.I)
     return re.sub(r"\s{2,}", " ", text).strip()
+
+
