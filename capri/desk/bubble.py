@@ -38,7 +38,7 @@ def icon_signal(p: QPainter, x, y, size, level: float, col: QColor):
 def icon_user(p: QPainter, x, y, size, col: QColor):
     p.setPen(Qt.NoPen)
     p.setBrush(col)
-    p.drawEllipse(QPointF(x + size / 2, y + size * 0.3), size * 0.22, size * 0.22)
+    p.drawEllipse(QPointF(x + size / 2, y + size * 0.3), size * 0.24, size * 0.24)
     body = QPainterPath(QPointF(x + size * 0.1, y + size))
     body.cubicTo(QPointF(x + size * 0.1, y + size * 0.55), QPointF(x + size * 0.9, y + size * 0.55),
                  QPointF(x + size * 0.9, y + size))
