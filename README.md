@@ -17,7 +17,7 @@
 
   
 
-  [![Download Capri](https://img.shields.io/badge/%E2%AC%87%20DOWNLOAD%20FOR%20WINDOWS-ff003c?style=for-the-badge&labelColor=0a0a12)](https://github.com/edgerunners-2/capri-ai-desktop/releases/download/v3.8.0/Capri-Portable-3.8.0.zip)
+  [![Download Capri](https://img.shields.io/badge/%E2%AC%87%20DOWNLOAD%20FOR%20WINDOWS-ff003c?style=for-the-badge&labelColor=0a0a12)](https://github.com/edgerunners-2/capri-ai-desktop/releases/download/v3.9.0/Capri-Portable-3.9.0.zip)
 
 </div>
 
